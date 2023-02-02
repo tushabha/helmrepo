@@ -9,6 +9,6 @@ entries:
     name: test
     type: application
     urls:
-    - https://github.com/tushabha/helmrepo.git/test-0.1.0.tgz
+    - https://github.com/tushabha/helmrepo/raw/master/test-0.1.0.tgz
     version: 0.1.0
 generated: "2023-02-02T15:20:21.024968566+05:30"
