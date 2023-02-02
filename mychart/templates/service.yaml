@@ -1,0 +1,22 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginxservice
+  namespace: test
+  labels:
+    app: test
+spec:
+  ports:
+    - name: 5000-tcp
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: ra-auth
+    deploymentconfig: ra-auth
+  clusterIP: 10.96.0.235
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+
