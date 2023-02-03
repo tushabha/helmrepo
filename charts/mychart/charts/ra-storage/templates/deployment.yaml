@@ -1,0 +1,63 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ra-storage
+    app: ra-storage
+    app.kubernetes.io/component: ra-storage
+    app.kubernetes.io/instance: ra-storage
+    app.openshift.io/runtime: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ra-storage
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ra-storage
+        deploymentconfig: ra-storage
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      volumes:
+        - name: storage-shared-volume
+          persistentVolumeClaim:
+            claimName: storage-shared-volume
+      containers:
+        - volumeDevices:
+            - name: storage-shared-volume
+              devicePath: /src/files
+          resources:
+            limits:
+              cpu: '3'
+              memory: 10Gi
+            requests:
+              cpu: '1'
+              memory: 3Gi
+          terminationMessagePath: /dev/termination-log
+          name: ra-storage
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          terminationMessagePolicy: File
+          envFrom:
+            - configMapRef:
+                name: storage
+          image: >-
+                 toshrajbhardwaj/ra-storage:latest
+      restartPolicy: Always
+      imagePullPolicy:
+              - name: regcred
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ra-procedures
+  namespace: ar-am
+  labels:
+    app: ra-procedures
+    app.kubernetes.io/component: ra-procedures
+    app.kubernetes.io/instance: ra-procedures
+    app.kubernetes.io/part-of: ra-procedures-app
+    app.openshift.io/runtime: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ra-procedures
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ra-procedures
+        deploymentconfig: ra-procedures
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      containers:
+        - name: ra-procedures
+          image: >-
+                  toshrajbhardwaj/ra-procedures:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: ra-procedures
+            - secretRef:
+                name: ra-procedures
+          resources:
+            limits:
+              cpu: '6'
+              memory: 10Gi
+            requests:
+              cpu: '2'
+              memory: 4Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      imagePullSecrets:
+              - name: regcred
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

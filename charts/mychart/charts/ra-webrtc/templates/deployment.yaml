@@ -1,0 +1,61 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ra-webrtc1
+  namespace: ar-am
+  labels:
+    app: ra-webrtc1
+    app.kubernetes.io/component: ra-webrtc1
+    app.kubernetes.io/instance: ra-webrtc1
+    app.kubernetes.io/part-of: ra-webrtc-app
+    app.openshift.io/runtime: nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ra-webrtc1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ra-webrtc1
+        deploymentconfig: ra-webrtc1
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      containers:
+        - name: ra-webrtc1
+          image: >-
+                  toshrajbhardwaj/ra-webrtc
+          ports:
+            - containerPort: 12776
+              protocol: TCP
+            - containerPort: 12777
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: auth
+          resources:
+            limits:
+              cpu: '6'
+              memory: 16Gi
+            requests:
+              cpu: '2'
+              memory: 6Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      imagePullPolicy:
+              - name: regcred
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

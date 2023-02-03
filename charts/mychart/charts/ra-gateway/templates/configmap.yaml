@@ -1,0 +1,18 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: gateway
+  namespace: ar-am
+data:
+  PROJECT_MANAGEMENT_SERVICE_BASE_URL: 'http://project:5000'
+  OBJECT_DETECTION_SERVICE_BASE_URL: 'http://ra-detection-server:5000'
+  APP_HOST: 0.0.0.0
+  LICENCE_EXPIRY_DATE: 30-06-2022
+  STORAGE_SERVICE_BASE_URL: 'http://ra-storage:5000'
+  TRAINING_SERVICE_BASE_URL: 'http://training:5000'
+  AUTHENTICATION_SERVICE_BASE_URL: 'http://ra-auth:5000'
+  FACE_RECOGNITION_SERVICE_BASE_URL: 'http://face-server:5000'
+  PROCEDURE_SERVICE_BASE_URL: 'http://ra-procedures:5000'
+  PLATE_RECOGNITION_SERVICE_BASE_URL: 'http://plate-server:5000'
+  APP_PORT: '5000'
+

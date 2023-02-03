@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-storage
+  namespace: ar-am
+  labels:
+    app: ra-storage
+    app.kubernetes.io/component: ra-storage
+    app.kubernetes.io/instance: ra-storage
+    app.openshift.io/runtime-version: sharedVolumes
+spec:
+  ports:
+    - name: 5000-tcp
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: ra-storage
+    deploymentconfig: ra-storage
+  clusterIP: 172.30.116.43
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+

@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-coturn
+  namespace: ar-am
+  labels:
+    app: ra-coturn
+    app.kubernetes.io/component: ra-coturn
+    app.kubernetes.io/instance: ra-coturn
+    app.kubernetes.io/part-of: ra-coturn-app
+    app.openshift.io/runtime-version: latest
+spec:
+  ports:
+    - name: 3478-udp
+      protocol: UDP
+      port: 3478
+      targetPort: 3478
+      nodePort: 30000
+  selector:
+    app: ra-coturn
+    deploymentconfig: ra-coturn
+  clusterIP: 172.30.163.27
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster

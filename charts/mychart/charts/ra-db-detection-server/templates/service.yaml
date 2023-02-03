@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-db-detection-server
+  namespace: ar-am
+  labels:
+    app: ra-db-detection-server
+    app.kubernetes.io/component: ra-db-detection-server
+    app.kubernetes.io/instance: ra-db-detection-server
+    app.kubernetes.io/part-of: detection-app
+    app.openshift.io/runtime-version: 13-10-2021
+spec:
+  ports:
+    - name: 3306-tcp
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+    - name: 33060-tcp
+      protocol: TCP
+      port: 33060
+      targetPort: 33060
+    - name: 33061-tcp
+      protocol: TCP
+      port: 33061
+      targetPort: 33061
+  selector:
+    app: ra-db-detection-server
+    deploymentconfig: ra-db-detection-server
+  clusterIP: 172.30.7.159
+  type: ClusterIP
+  sessionAffinity: None

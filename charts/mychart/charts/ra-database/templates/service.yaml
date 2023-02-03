@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-database
+  namespace: ar-am
+  labels:
+    app: ra-database
+    app.kubernetes.io/component: ra-database
+    app.kubernetes.io/instance: ra-database
+    app.kubernetes.io/part-of: ra-database-app
+    app.openshift.io/runtime-version: procedures
+spec:
+  ports:
+    - name: 3306-tcp
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+    - name: 33060-tcp
+      protocol: TCP
+      port: 33060
+      targetPort: 33060
+    - name: 33061-tcp
+      protocol: TCP
+      port: 33061
+      targetPort: 33061
+  selector:
+    app: ra-database
+    deploymentconfig: ra-database
+  clusterIP: 172.30.239.87
+  type: ClusterIP
+  sessionAffinity: None

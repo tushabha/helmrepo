@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-session1
+  namespace: ar-am
+  labels:
+    app: ra-session1
+    app.kubernetes.io/component: ra-session1
+    app.kubernetes.io/instance: ra-session1
+    app.kubernetes.io/part-of: ra-session-app
+    app.openshift.io/runtime-version: sec-fix
+spec:
+  ports:
+    - name: 12774-tcp
+      protocol: TCP
+      port: 12774
+      targetPort: 12774
+    - name: 12775-tcp
+      protocol: TCP
+      port: 12775
+      targetPort: 12775
+  selector:
+    app: ra-session1
+    deploymentconfig: ra-session1
+  clusterIP: 172.30.248.64
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+

@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-webrtc1
+  namespace: ar-am
+  labels:
+    app: ra-webrtc1
+    app.kubernetes.io/component: ra-webrtc1
+    app.kubernetes.io/instance: ra-webrtc1
+    app.kubernetes.io/part-of: ra-webrtc-app
+    app.openshift.io/runtime-version: sec-fix
+spec:
+  ports:
+    - name: 12776-tcp
+      protocol: TCP
+      port: 12776
+      targetPort: 12776
+    - name: 12777-tcp
+      protocol: TCP
+      port: 12777
+      targetPort: 12777
+  selector:
+    app: ra-webrtc1
+    deploymentconfig: ra-webrtc1
+  clusterIP: 172.30.22.48
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+

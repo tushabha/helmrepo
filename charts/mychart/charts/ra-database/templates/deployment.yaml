@@ -1,0 +1,70 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: ra-database
+  namespace: ar-am
+  labels:
+    app: ra-database
+    app.kubernetes.io/component: ra-database
+    app.kubernetes.io/instance: ra-database
+    app.kubernetes.io/part-of: ra-database-app
+    app.openshift.io/runtime: mysql-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ra-database
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ra-database
+        deploymentconfig: ra-database
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      volumes:
+        - name: db-shared-volume
+          persistentVolumeClaim:
+            claimName: db-shared-volume
+      containers:
+        - volumeDevices:
+            - name: db-shared-volume
+              devicePath: /var/lib/mysql
+          resources:
+            limits:
+              cpu: '3'
+              memory: 6Gi
+            requests:
+              cpu: '1'
+              memory: 2Gi
+          terminationMessagePath: /dev/termination-log
+          name: ra-database
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db.secret
+                  key: MYSQL_ROOT_PASSWORD
+          ports:
+            - containerPort: 3306
+              protocol: TCP
+            - containerPort: 33060
+              protocol: TCP
+            - containerPort: 33061
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          terminationMessagePolicy: File
+          image: >-
+                  toshrajbhardwaj/ra-database:latest
+      restartPolicy: Always
+      imagePullPolicy:
+              - name: regcred
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

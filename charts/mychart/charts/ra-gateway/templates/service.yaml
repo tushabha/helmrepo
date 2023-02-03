@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ra-gateway
+  namespace: ar-am
+  labels:
+    app: ra-gateway
+    app.kubernetes.io/component: ra-gateway
+    app.kubernetes.io/instance: ra-gateway
+    app.kubernetes.io/part-of: gateway
+    app.openshift.io/runtime-version: 13-10-2021
+spec:
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 5000
+  selector:
+    app: ra-gateway
+    deploymentconfig: ra-gateway
+  clusterIP: 172.30.201.94
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+
