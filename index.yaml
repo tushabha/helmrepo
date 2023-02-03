@@ -3,12 +3,12 @@ entries:
   test:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-03T12:25:11.063708906+05:30"
+    created: "2023-02-03T12:37:13.910545861+05:30"
     description: A Helm chart for Kubernetes
-    digest: 0a82353c3e29ebeae90e4503e9dc2432a76d40d4ef5d6a8b2b4d1a9997bf9cb5
+    digest: f50ba6760f6a0f2eea210d5c428dbbc7f944421aa8ba2d7f4ecd05eeab30e84a
     name: test
     type: application
     urls:
     - https://tushabha.github.io/helmrepo/test-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-03T12:25:11.062604975+05:30"
+generated: "2023-02-03T12:37:13.909332547+05:30"
