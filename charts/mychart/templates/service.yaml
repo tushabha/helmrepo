@@ -18,7 +18,7 @@ spec:
   selector:
     app: ra-auth
     deploymentconfig: ra-auth
-  clusterIP: 10.96.0.235
+  clusterIP: 172.30.235.235
   type: ClusterIP
   sessionAffinity: None
 status:
