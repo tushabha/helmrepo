@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ra-db-detection-server
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-db-detection-server
     app.kubernetes.io/component: ra-db-detection-server

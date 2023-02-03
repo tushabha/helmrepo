@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ra-storage
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-storage
     app.kubernetes.io/component: ra-storage

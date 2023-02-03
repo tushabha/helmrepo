@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ra-coturn
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-coturn
     app.kubernetes.io/component: ra-coturn

@@ -5,6 +5,10 @@ metadata:
   namespace: test
   labels:
     app: ra-coturn
+    app.kubernetes.io/component: ra-coturn
+    app.kubernetes.io/instance: ra-coturn
+    app.kubernetes.io/part-of: ra-coturn-app
+    app.openshift.io/runtime-namespace: test
 spec:
   replicas: 1
   selector:

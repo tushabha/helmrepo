@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ra-session1
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-session1
     app.kubernetes.io/component: ra-session1

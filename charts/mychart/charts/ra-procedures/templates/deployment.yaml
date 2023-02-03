@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: ra-procedures
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-procedures
     app.kubernetes.io/component: ra-procedures

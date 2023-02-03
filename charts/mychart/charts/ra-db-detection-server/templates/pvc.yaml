@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: ra-db-detection-shared-volume
-  namespace: ar-am
+  namespace: test
   finalizers:
     - kubernetes.io/pvc-protection
 spec:
@@ -12,5 +12,5 @@ spec:
     requests:
       storage: 50Gi
   volumeName: pvc-80e14044-74df-4eb6-ac05-2c6efdb4690f
-  storageClassName: ocs-storagecluster-ceph-rbd
+  storageClassName: test
   volumeMode: Block

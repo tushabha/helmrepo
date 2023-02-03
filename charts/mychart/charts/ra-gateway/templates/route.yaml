@@ -2,7 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: ra-gateway-route
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-gateway
     app.kubernetes.io/component: ra-gateway

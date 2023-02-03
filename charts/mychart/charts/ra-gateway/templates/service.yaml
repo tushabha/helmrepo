@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ra-gateway
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-gateway
     app.kubernetes.io/component: ra-gateway

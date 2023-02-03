@@ -2,14 +2,14 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: ra-db-detection-server
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-db-detection-server
     app.kubernetes.io/component: ra-db-detection-server
     app.kubernetes.io/instance: ra-db-detection-server
     app.kubernetes.io/part-of: detection-app
     app.openshift.io/runtime: mysql-database
-    app.openshift.io/runtime-namespace: ar-am
+    app.openshift.io/runtime-namespace: test
 spec:
   replicas: 1
   selector:

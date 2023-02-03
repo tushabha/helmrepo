@@ -1,10 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginxservice
+  name: ra-auth
   namespace: test
   labels:
-    app: test
+    app: ra-auth
+    app.kubernetes.io/component: ra-auth
+    app.kubernetes.io/instance: ra-auth
+    app.kubernetes.io/part-of: auth-app
+    app.openshift.io/runtime-version: sec-fix
 spec:
   ports:
     - name: 5000-tcp

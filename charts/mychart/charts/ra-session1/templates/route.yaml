@@ -2,7 +2,7 @@ kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
   name: ra-session-route
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-session1
     app.kubernetes.io/component: ra-session1

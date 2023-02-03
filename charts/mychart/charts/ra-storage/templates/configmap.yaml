@@ -2,7 +2,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: storage
-  namespace: ar-am
+  namespace: test
 data:
   APP_HOST: 0.0.0.0
   APP_PORT: '5000'

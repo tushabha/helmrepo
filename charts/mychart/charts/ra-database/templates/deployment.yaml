@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: ra-database
-  namespace: ar-am
+  namespace: test
   labels:
     app: ra-database
     app.kubernetes.io/component: ra-database
