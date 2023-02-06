@@ -56,7 +56,7 @@ spec:
           imagePullPolicy: IfNotPresent
           terminationMessagePolicy: File
           image: >-
-                  toshrajbhardwaj/ra-database:latest
+                  toshrajbhardwaj/ra-database:access-token-fix
       restartPolicy: Always
       imagePullPolicy:
               - name: regcred
