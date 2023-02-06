@@ -11,4 +11,3 @@ spec:
       storage: 100Gi
   volumeName: ra-storage
   storageClassName: odf-lvm-vg1
-  volumeMode: Block

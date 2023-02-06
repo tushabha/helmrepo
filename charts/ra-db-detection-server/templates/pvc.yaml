@@ -11,4 +11,3 @@ spec:
       storage: 50Gi
   volumeName: ra-db-detection-shared-volume
   storageClassName: odf-lvm-vg1
-  volumeMode: Block
