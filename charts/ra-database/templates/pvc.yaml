@@ -3,14 +3,12 @@ apiVersion: v1
 metadata:
   name: db-shared-volume
   namespace: test
-  finalizers:
-    - kubernetes.io/pvc-protection
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 100Gi
-  volumeName: pvc-61c9ae42-b3d2-41e8-b15c-bd0927dd1f34
+  volumeName: db-shared-vol
   storageClassName: test
   volumeMode: Block

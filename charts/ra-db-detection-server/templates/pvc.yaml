@@ -3,14 +3,12 @@ apiVersion: v1
 metadata:
   name: ra-db-detection-shared-volume
   namespace: test
-  finalizers:
-    - kubernetes.io/pvc-protection
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 50Gi
-  volumeName: pvc-80e14044-74df-4eb6-ac05-2c6efdb4690f
-  storageClassName: test
-  volumeMode: Block
+  volumeName: db-detct-sh-vol
+  storageClassName: odf-lvm-vg1
+  volumeMode: File
