@@ -1,0 +1,16 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: storage-shared-volume
+  namespace: test
+  finalizers:
+    - kubernetes.io/pvc-protection
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+  volumeName: pvc-1c4df273-7087-4b1b-afb2-a0fe1b83ffd4
+  storageClassName: test
+  volumeMode: Block
