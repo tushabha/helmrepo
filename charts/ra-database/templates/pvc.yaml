@@ -11,4 +11,3 @@ spec:
       storage: 100Gi
   volumeName: db-shared-vol
   storageClassName: odf-lvm-vg1
-  volumeMode: Block
