@@ -46,6 +46,8 @@ spec:
                 secretKeyRef:
                   name: db.secret
                   key: MYSQL_ROOT_PASSWORD
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
           ports:
             - containerPort: 3306
               protocol: TCP
