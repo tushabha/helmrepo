@@ -10,5 +10,5 @@ spec:
     requests:
       storage: 100Gi
   volumeName: ra-storage
-  storageClassName: test
+  storageClassName: odf-lvm-vg1
   volumeMode: Block

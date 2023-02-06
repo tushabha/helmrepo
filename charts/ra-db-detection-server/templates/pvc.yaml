@@ -9,6 +9,6 @@ spec:
   resources:
     requests:
       storage: 50Gi
-  volumeName: db-detct-sh-vol
+  volumeName: ra-db-detection-shared-volume
   storageClassName: odf-lvm-vg1
-  volumeMode: File
+  volumeMode: Block
