@@ -9,5 +9,6 @@ spec:
   resources:
     requests:
       storage: 100Gi
-  volumeName: db-shared-vol
-  storageClassName: odf-lvm-vg1
+  volumeName: local-pv-c131e32b
+  storageClassName: myvol
+  volumeMode: Block

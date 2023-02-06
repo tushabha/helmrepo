@@ -9,5 +9,6 @@ spec:
   resources:
     requests:
       storage: 100Gi
-  volumeName: ra-storage
-  storageClassName: odf-lvm-vg1
+  volumeName: local-pv-2390ce18
+  storageClassName: myvol
+  volumeMode: Block

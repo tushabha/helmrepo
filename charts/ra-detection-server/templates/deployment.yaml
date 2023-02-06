@@ -27,7 +27,7 @@ spec:
       containers:
         - name: ra-detection-server
           image: >-
-                  toshrajbhardwaj/ra-detection-server/latest
+                  toshrajbhardwaj/ra-detection-server:latest
           ports:
             - containerPort: 5000
               protocol: TCP
