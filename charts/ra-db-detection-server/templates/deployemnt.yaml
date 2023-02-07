@@ -54,7 +54,7 @@ spec:
             - secretRef:
                 name: ra-db-detection-server
           image: >-
-                  toshrajbhardwaj/ra-detection-server:latest
+                  10.139.2.215:5000/ra-db-detection-server:13-10-2021
       restartPolicy: Always
       imagePullSecrets:
               - name: regcred
