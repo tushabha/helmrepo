@@ -46,7 +46,7 @@ spec:
           terminationMessagePolicy: File
           imagePullPolicy: IfNotPresent
       restartPolicy: Always
-      imagePullPolicy:
+      imagePullSecrets:
               - name: test
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
