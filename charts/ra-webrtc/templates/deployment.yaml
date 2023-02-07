@@ -47,7 +47,7 @@ spec:
           imagePullPolicy: IfNotPresent
       restartPolicy: Always
       imagePullSecrets:
-              - name: test
+        - name: test
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       securityContext: {}
