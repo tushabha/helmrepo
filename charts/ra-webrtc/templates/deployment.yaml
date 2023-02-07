@@ -26,7 +26,7 @@ spec:
       containers:
         - name: ra-webrtc1
           image: >-
-                  toshrajbhardwaj/ra-webrtc
+                  10.139.2.215:5000/ra-webrtc:sec-fix
           ports:
             - containerPort: 12776
               protocol: TCP
@@ -47,7 +47,7 @@ spec:
           imagePullPolicy: IfNotPresent
       restartPolicy: Always
       imagePullPolicy:
-              - name: regcred
+              - name: test
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
       securityContext: {}
